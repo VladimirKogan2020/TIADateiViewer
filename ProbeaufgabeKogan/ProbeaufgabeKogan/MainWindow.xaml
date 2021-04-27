@@ -1,0 +1,57 @@
+﻿<Window x:Class="ProbeaufgabeKogan.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Name="MyWindow"
+        xmlns:local="clr-namespace:ProbeaufgabeKogan"
+        mc:Ignorable="d"
+        Title="TIA Selection Tool - Datei Viewer" Height="550" Width="900">
+   
+    <Grid Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15*"></RowDefinition>
+            <RowDefinition Height="70*"></RowDefinition>
+            <RowDefinition Height="15*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" BorderBrush="Black" BorderThickness="0,1,0,1">
+            <ListBox x:Name="lbNodeGroups" Background="#FFBCD2D3" SelectionChanged="NodeGroups_SelectionChanged" >
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate >
+                        <StackPanel Orientation="Horizontal">
+                            <Border BorderBrush="Black" BorderThickness="1">
+                                <Label Content="{Binding}"></Label>
+                            </Border>
+                            
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Border>
+
+        <ListBox x:Name="lbGroupElements" Grid.Row="1" Background="#FFEDF5F8" ItemTemplate="{StaticResource klt}"></ListBox>                             
+        <Border Grid.Row="2" BorderBrush="Black" BorderThickness="0,1,0,1">
+            <Grid Background="#FFBCD2D3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*"></ColumnDefinition>
+                    <ColumnDefinition Width="10*"></ColumnDefinition>
+                    <ColumnDefinition Width="10*"></ColumnDefinition>
+                    <ColumnDefinition Width="10*"></ColumnDefinition>
+                    <ColumnDefinition Width="60*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" BorderBrush="Black" BorderThickness="0,0,1,0">
+                    <Image Source="icons/FileOpen.png" MouseLeftButtonDown="FileImage_MouseLeftButtonDown"/>
+                </Border>
+                <Image Grid.Column="1" Source="icons/Settings.png"/>
+                <Image  Grid.Column="2" Source="icons/Compare.png" />
+                <Image  Grid.Column="3" Source="icons/CsvExport.png"/>
+
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

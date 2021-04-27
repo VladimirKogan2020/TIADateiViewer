@@ -1,0 +1,30 @@
+﻿<Application x:Class="ProbeaufgabeKogan.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ProbeaufgabeKogan"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style TargetType="Image">
+            <Setter Property="MaxHeight" Value="50"/>
+            <Setter Property="MaxWidth" Value="60"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+        
+        <Style x:Key="TextBlockVorlage" TargetType="TextBlock">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <!--<Setter Property="FontWeight" Value="DemiBold"/>-->
+
+        </Style>
+        
+        <DataTemplate x:Key="klt">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Name or Id: " FontWeight="DemiBold"></Label>
+                <TextBlock Text="{Binding Path=Description}" Style="{StaticResource ResourceKey= TextBlockVorlage}"></TextBlock>
+                <Label Content="IEigenschaften: " FontWeight="DemiBold"></Label>
+                <TextBlock Text="{Binding Path=PropertyCount}"  Style="{StaticResource ResourceKey= TextBlockVorlage}"></TextBlock>
+            </StackPanel>
+        </DataTemplate>
+        
+    </Application.Resources>
+</Application>
